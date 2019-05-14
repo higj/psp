@@ -166,6 +166,6 @@ The method `getEvents()` (located in `lib/functions.php`) consitutes the core of
 
 We perform the loading and the filtering of the events in `parser.php`. In essence, that's the only file you need to work with.
 
-**Note**: if you prefer `.txt` output over `.xlsx` use `plain_parser.php` instead (no need to install PhpSpreadsheet in this case)
+**Important note**: if you prefer `.txt` output over `.xlsx` use `plain_parser.php` instead (no need to install PhpSpreadsheet in this case)
 
-Note that by default results are saved to `results/parsed_output.xlsx`, but you can modify the path and the file name in `config.php`.
+Results are saved to `results/parsed_output(.xlsx/.txt)` by default, but you can modify the path and the file name in `config.php`.
