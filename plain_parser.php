@@ -1,13 +1,13 @@
 <?php
 
 include 'lib/functions.php';
-include 'lib/table.php';
+include 'lib/plain_table.php';
 
 $simulation_output = file_get_contents(SIM_OUTPUT_FILE_PATH, FALSE); // Load the simulation output
 
 $events = getEvents($simulation_output); // Fetch all the events
 
-$table = new Table(['Run' , 'φ', 'Δφ', 'κ1', 'Δκ1', 'κ2', 'Δκ2', 'x', 'Δx', 'y', 'Δy', 'z', 'Δz'], 'A10'); // Prepare the Excel table
+$table = new PlainTable(['Run' , 'φ', 'Δφ', 'κ1', 'Δκ1', 'κ2', 'Δκ2', 'x', 'Δx', 'y', 'Δy', 'z', 'Δz']); // Prepare the table
 
 // Here you should filter the relevant events and insert the appropriate row into the Excel table
 
@@ -107,21 +107,11 @@ foreach($events as $event) {
 					$event['spectrometer_data']['vertices_data'][0]['data']['coordinates']['y']['error'],
 					$event['spectrometer_data']['vertices_data'][0]['data']['coordinates']['z']['value'],
 					$event['spectrometer_data']['vertices_data'][0]['data']['coordinates']['z']['error'],
-					'Two tracks'
 				]);
 			}
 		}
 	}
 }
-
-
-// Now, create the header for the Excel table with all the relevant information (Optional)
-$table->createHeader('Lambda', 'A1:H', [
-		'Momentum' => 8,
-		'Total number of injections' => 1000,
-		'Number of times Pi-0 decayed into 2 photons' => $good_events_counter,
-		'Branching Ratio' => $good_events_counter / 1000
-]);
 
 // Save the table
 $table->saveTable();

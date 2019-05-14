@@ -143,7 +143,7 @@ class Table extends Spreadsheet {
 	 * Saves the table to .xlsx file
 	 * @param string $filename is the desired file name
 	 */
-	public function saveTable($filename = 'output') {
+	public function saveTable($filename = PARSED_OUTPUT_FILE_PATH) {
 		$writer = new Xlsx($this);
 		$writer->save($filename . '.xlsx');
 	}
