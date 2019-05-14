@@ -10,7 +10,7 @@ Although *PSP* only needs the simulation output file it is recommended to use it
 
 * [XAMPP](https://www.apachefriends.org/index.html) or any other Apache Distribution in order to execute the PHP scripts on your computer
 
-* [PhpSpreadsheet](https://phpspreadsheet.readthedocs.io/en/latest/#installation) library as the script relies on it for producing Excel tables
+* (**Optional**) [PhpSpreadsheet](https://phpspreadsheet.readthedocs.io/en/latest/#installation) library for producing Excel spreadsheet
 
 ## Configuring the script
 
@@ -165,5 +165,7 @@ The method `getEvents()` (located in `lib/functions.php`) consitutes the core of
 
 
 We perform the loading and the filtering of the events in `parser.php`. In essence, that's the only file you need to work with.
+
+**Note**: if you prefer `.txt` output over `.xlsx` use `plain_parser.php` instead (no need to install PhpSpreadsheet in this case)
 
 Note that by default results are saved to `results/parsed_output.xlsx`, but you can modify the path and the file name in `config.php`.
