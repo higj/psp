@@ -103,7 +103,7 @@ The method `getEvents()` (located in `lib/functions.php`) consitutes the core of
 										[1] => 2
 									)
 
-								[data] => Array // This array contains the vertex coordinates as well the the angle
+								[data] => Array // This array contains the vertex coordinates as well as the angle
 									(
 										[coordinates] => Array
 											(
