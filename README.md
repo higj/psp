@@ -14,7 +14,7 @@ Although *PSP* only needs the simulation output file it is recommended to use it
 
 ## Configuring the script
 
-After installing the PhpSpreadsheet library you must specify the Composer directory in `config.php`. It usually looks like `C:/Users/<USER_NAME>/vendor/autoload.php` in Windows.
+If you chose to install the PhpSpreadsheet library you must specify the Composer directory in `config.php`. It usually looks like `C:/Users/<USER_NAME>/vendor/autoload.php` in Windows.
 
 ## Using the script
 
