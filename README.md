@@ -70,7 +70,7 @@ Event Object
                 (
                     [0] => Array
                         (
-                            [tracks] => Array
+                            [tracks] => Array // Always contains 2 elements - the two tracks corresponding to this vertex
                                 (
                                     [0] => 1
                                     [1] => 2
