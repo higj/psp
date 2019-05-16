@@ -33,7 +33,7 @@ foreach($events as $event) {
 			$kappa1 = $max_angle_data['tracks'][0]['curvature']['value'];
 			$kappa2 = $max_angle_data['tracks'][1]['curvature']['value'];
 			
-			// Since the decay products supposed to have opposite charges we expect the kappas to differ in sign
+			// Since the decay products are supposed to have opposite charges we expect the kappas to differ in sign
 			// Because that's not always the case, let's select the "correct" events
 			if(($kappa1 < 0) != ($kappa2 < 0)) {
 				$good_events_counter++;
