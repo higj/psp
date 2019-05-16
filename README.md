@@ -20,7 +20,7 @@ If you chose to install the PhpSpreadsheet library you must specify the Composer
 
 By default, the simulation output (`.txt` file) must be placed in the root directory (i.e. the same directory as `parser.php`), but you can change this setting (`SIM_OUTPUT_FILE_PATH`) in `config.php`. 
 
-The method `Event::getEvents()` (located in `lib/event.php`) consitutes the core of the parser. It scans the events from the output text file and organizes them in an array of `Event` objects. Each such object has the following structure:
+The method `Event::getEvents()` (located in `lib/event.php`) constitutes the core of the parser. It scans the events from the output text file and organizes them in an array of `Event` objects. Each such object has the following structure:
 
 ```
 Event Object
