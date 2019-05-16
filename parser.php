@@ -23,7 +23,7 @@ foreach($events as $event) {
 	// Therefore let's select the events that actually contain spectrometer data (i.e. produced charged particles)
 	if($event->hasFullSpectrometerData()) {
 		// We're only interested in events which produced 2 tracks (and also 3, because of a known simulation bug)
-		if(($event->number_of_tracks == 3 && $event->number_of_vertices == 3) || ($event->number_of_tracks == 2)) {
+		if(($event->number_of_tracks == 3 && $event->number_of_vertices > 1) || ($event->number_of_tracks == 2)) {
 			// Let's find the maximal angle between the tracks (necessary for the case of 3 tracks; trivial when there are 2)
 			// The class Events has a useful method called maxAngleSpectrometerData() which returns
 			// all the useful spectrometer data (such as kappa, errors etc.) corresponding to the highest angle (phi)
