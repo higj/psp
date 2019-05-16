@@ -137,7 +137,7 @@ Event Object
 ```
 
 
-We perform the loading and the filtering of the events in `parser.php`. In essence, that's the only file you need to work with.
+We perform the loading and the filtering of events in `parser.php`. In essence, that's the only file you need to work with.
 
 **Important note**: if you prefer `.txt` output over `.xlsx` use `plain_parser.php` instead (no need to install PhpSpreadsheet in this case)
 
