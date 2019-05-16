@@ -20,147 +20,120 @@ If you chose to install the PhpSpreadsheet library you must specify the Composer
 
 By default, the simulation output (`.txt` file) must be placed in the root directory (i.e. the same directory as `parser.php`), but you can change this setting (`SIM_OUTPUT_FILE_PATH`) in `config.php`. 
 
-The method `getEvents()` (located in `lib/functions.php`) consitutes the core of the parser. It scans the events from the output text file and organizes them in an array, which has the following structure:
+The method `Event::getEvents()` (located in `lib/event.php`) consitutes the core of the parser. It scans the events from the output text file and organizes them in an array of `Event` objects. Each such object has the following structure:
 
 ```
-[0] => Array // First event (notice the index starts from 0)
-	(
-		[injection_momentum] =>  8.0 // Value of the initial momentum (e.g. 8)
-		[has_charged_products] => Boolean // TRUE if charged particles were produced, FALSE otherwise
-		[has_muon_detector_hits] => Boolean // Self-explanatory
-		[cluster_number] => 2 // The number of clusters in the calorimeter (e.g. 2)
-		[cluster_data] => Array // Array with cluster data (NULL if there are zero clusters)
-			(
-				[0] => Array // First cluster
-					(
-						[pulse_height] => 32.0
-						[x] => 133.0
-						[y] => -17.8
-						[z] => 6.0
-					)
+Event Object
+(
+    [injection_momentum] => 8.0 // Value of the initial momentum (in this example 8.0)
+    [spectrometer_data] => Array // Stores the spectrometer data (empty if there's no data)
+        (
+            [track_data] => Array
+                (
+                    [1] => Array // The index corresponds to the track number (here it means Track No. 1)
+                        (
+                            [curvature] => Array
+                                (
+                                    [value] => -0.130972825E-02
+                                    [error] => 0.10885E-09
+                                )
 
-				[1] => Array // Second cluster
-					(
-						[pulse_height] => ...
-						[x] => ...
-						[y] => ...
-						[z] => ...
-					)
-					
-				.
-				.
-				.
+                            [tandip] => Array
+                                (
+                                    [value] => 0.099900089
+                                    [error] => 0.22033E-03
+                                )
 
-			)
+                        )
 
-		[spectrometer_data] => Array // Stores the spectrometer data (empty if there's no data)
-			(
-				[track_data] => Array
-					(
-						[1] => Array // The index corresponds to the track number
-							(
-								[curvature] => Array
-									(
-										[value] => -0.130972825E-02
-										[error] => 0.10885E-09
-									)
+                    [2] => Array
+                        (
+                            [curvature] => Array
+                                (
+                                    [value] => ...
+                                    [error] => ...
+                                )
 
-								[tandip] => Array
-									(
-										[value] => 0.099900089
-										[error] => 0.22033E-03
-									)
+                            [tandip] => Array
+                                (
+                                    [value] => ...
+                                    [error] => ...
+                                )
 
-							)
+                        )
+			.
+			.
+			.
+                )
 
-						[2] => Array
-							(
-								[curvature] => Array
-									(
-										[value] => ...
-										[error] => ...
-									)
+            [vertices_data] => Array
+                (
+                    [0] => Array
+                        (
+                            [tracks] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 2
+                                )
 
-								[tandip] => Array
-									(
-										[value] => ...
-										[error] => ...
-									)
+                            [data] => Array
+                                (
+                                    [coordinates] => Array
+                                        (
+                                            [x] => Array
+                                                (
+                                                    [value] => 81.17825
+                                                    [error] => 24.59993
+                                                )
 
-							)
-						.
-						.
-					    .
-					)
+                                            [y] => Array
+                                                (
+                                                    [value] => -6.81394
+                                                    [error] => 4.69129
+                                                )
 
-				[vertices_data] => Array // Contains vertices data (if the reconstruction was successful)
-					(
-						[0] => Array // First vertex
-							(
-								[tracks] => Array // This array always contains two elements - the two tracks corresponding to this vertex
-									(
-										[0] => 1
-										[1] => 2
-									)
+                                            [z] => Array
+                                                (
+                                                    [value] => 8.87917
+                                                    [error] => 1.97983
+                                                )
 
-								[data] => Array // This array contains the vertex coordinates as well as the angle
-									(
-										[coordinates] => Array
-											(
-												[x] => Array
-													(
-														[value] => 81.17825
-														[error] => 24.59993
-													)
+                                        )
 
-												[y] => Array
-													(
-														[value] => -6.81394
-														[error] => 4.69129
-													)
+                                    [angle] => Array
+                                        (
+                                            [value] => 0.00072
+                                            [error] => 0.09287
+                                        )
 
-												[z] => Array
-													(
-														[value] => 8.87917
-														[error] => 1.97983
-													)
+                                )
 
-											)
+                        )
+			.
+			.
+			.
+                )
 
-										[angle] => Array
-											(
-												[value] => 0.00072
-												[error] => 0.09287
-											)
+        )
 
-									)
+    [cluster_number] => 1 // The number of clusters in the calorimeter
+    [cluster_data] => Array // Array with cluster data
+        (
+            [0] => Array
+                (
+                    [pulse_height] => 23.0
+                    [x] => 133.0
+                    [y] => -23.0
+                    [z] => 16.0
+                )
 
-							)
+        )
 
-						[1] => Array // Second vertex
-							(
-								[tracks] => Array
-									(
-										[0] => 1
-										[1] => 3
-									)
-
-								.
-								.
-								.
-
-							)
-
-					)
-
-			)
-
-	)
-	
-[1] => Array // Second event 
-	.
-	.
-	.
+    [has_charged_products] => Boolean // TRUE if charged particles were produced, FALSE otherwise
+    [has_muon_hits] => Boolean // Self-explanatory
+    [number_of_tracks] => 3 // Self-explanatory
+    [number_of_vertices] => 3 // Self-explanatory
+)
 ```
 
 
