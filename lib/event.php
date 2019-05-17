@@ -156,6 +156,9 @@ class Event {
 	
 	
 	public static function getEvents($source, $remove_errors_from_cluster_table = TRUE, $remove_errors_from_spectrometer_table = TRUE) {
+		
+		$source = preg_replace("/(?<=[^\r]|^)\n/", "\r\n", $source);
+		
 		$all_available_particles = array('photon', 'electron', 'positron', 'muon', 'mu-plus', 'neutrino', 'pi-0', 'pi-plus', 'pi-minus', 'k-long', 'k-short', 'k-plus', 'k-minus', 'neutron', 'proton', 'antiproton', 'lambda', 'antilambda', 'sigma-plus', 'sigma-minus', 'sigma-0');
 		
 		$output = [];
