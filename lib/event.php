@@ -157,22 +157,22 @@ class Event {
 	
 	public static function getEvents($source, $remove_errors_from_cluster_table = TRUE, $remove_errors_from_spectrometer_table = TRUE) {
 		
-		$source = preg_replace("/(?<=[^\r]|^)\n/", "\r\n", $source);
-		
-		$all_available_particles = array('photon', 'electron', 'positron', 'muon', 'mu-plus', 'neutrino', 'pi-0', 'pi-plus', 'pi-minus', 'k-long', 'k-short', 'k-plus', 'k-minus', 'neutron', 'proton', 'antiproton', 'lambda', 'antilambda', 'sigma-plus', 'sigma-minus', 'sigma-0');
+		$source = preg_replace("/(?<=[^\r]|^)\n/", "\r\n", $source); // Ensure cross-platform compatibility
 		
 		$output = [];
 		
-		preg_match_all('/(?!GEANT > ' . join($all_available_particles, '\s)(?!GEANT >') . '\s)\d{1,}\.?\d*(?=\r\nGEANT\s>\s\r\n)/', $source, $momentum_values); // Fetch all the momenta of all the injections
-		
-		$events_arr = preg_split('/GEANT > (' . join($all_available_particles, '|') . ')\s\d{1,}\.?\d*\r\nGEANT > /', $source); // Identify the events in the original output text
-		
-		$first_event = array_shift($events_arr); // The first element isn't actually an event - just an introductory statement. That's why we would like to remove it from the events array
-		
-		foreach($events_arr as $event) {
-			$value_of_momentum = array_shift($momentum_values[0]);
+		// Fetch all the momenta of all the injections
+		if(preg_match_all('/(?!GEANT > ' . join($GLOBALS['all_available_particles'], '\s)(?!GEANT >') . '\s)\d{1,}\.?\d*(?=\r\nGEANT\s>\s\r\n)/', $source, $momentum_values) > 0) {
 			
-			$output[] = new self($value_of_momentum, $event);
+			$events_arr = preg_split('/GEANT > (' . join($GLOBALS['all_available_particles'], '|') . ')\s\d{1,}\.?\d*\r\nGEANT > /', $source); // Identify the events in the original output text
+		
+			array_shift($events_arr); // The first element isn't actually an event - just an introductory statement. That's why we would like to remove it from the events array
+			
+			foreach($events_arr as $event) {
+				$output[] = new self(array_shift($momentum_values[0]), $event);
+			}	
+		} else {
+			echo 'Incorrect format of the simulation output file (' . SIM_OUTPUT_FILE_PATH . ')';
 		}
 		
 		return $output;

@@ -162,6 +162,6 @@ Results are saved to `results/parsed_output(.xlsx/.txt)` by default, but you can
 		'Number of times that a pion decayed into two photons' => 678
   ]);
   ```
-  produces the following result: 
+  produces the following result (notice the box starts at `A1` and ends on column `H`, as expected): 
   
   ![alt text](https://i.imgur.com/aSK4xaj.png "Header for Part II results")
