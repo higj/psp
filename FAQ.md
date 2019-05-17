@@ -5,7 +5,11 @@
 
 ## PHPSpreadsheet doesn't work
 
-In order to use this package you must first install [Composer](https://getcomposer.org/) and then run the command `composer require phpoffice/phpspreadsheet`. You then have to change the `autoload.php` directory in `config.php` to the correct path, which in Windows typically looks like:
+In order to use this package you must first install [Composer](https://getcomposer.org/) and then run the command 
+
+```composer require phpoffice/phpspreadsheet```
+
+You then have to change the `autoload.php` directory in `config.php` to the correct path, which in Windows typically looks like:
 
 ```define('COMPOSER_AUTOLOAD_DIR', 'C:/Users/<USER-NAME>/vendor/autoload.php');```
 
