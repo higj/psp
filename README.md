@@ -25,7 +25,7 @@ The method `Event::getEvents()` (located in `lib/event.php`) constitutes the cor
 <details> 
 	<summary>Code Snippet</summary>
 	
-	```
+
 	Event Object
 	(
 		[injection_momentum] => 8.0 // Value of the initial momentum (in this example 8.0)
@@ -137,7 +137,7 @@ The method `Event::getEvents()` (located in `lib/event.php`) constitutes the cor
 		[number_of_tracks] => 3 // Self-explanatory
 		[number_of_vertices] => 3 // Self-explanatory
 	)
-	```
+
 </details>
 
 We perform the loading and the filtering of events in `parser.php`. In essence, that's the only file you need to work with.
