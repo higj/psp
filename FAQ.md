@@ -11,7 +11,9 @@ In order to use this package you must first install [Composer](https://getcompos
 
 You then have to change the `autoload.php` directory in `config.php` to the correct path, which in Windows typically looks like:
 
-```define('COMPOSER_AUTOLOAD_DIR', 'C:/Users/<USER-NAME>/vendor/autoload.php');```
+```php
+define('COMPOSER_AUTOLOAD_DIR', 'C:/Users/<USER-NAME>/vendor/autoload.php');
+```
 
 
 ## How to load the simulation output data and fetch the events?
@@ -20,7 +22,7 @@ In order to load the file contents simply use the standard PHP function [`file_g
 
 To convert that content into an array of `Event` objects use the method `Event::getEvents($simulation_output)` (don't forget to `include` the file `'lib/event.php'`). Here's an example from `parser.php`:
 
-```
+```php
 include 'lib/event.php';
 include 'lib/table.php';
 
