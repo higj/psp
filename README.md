@@ -145,3 +145,13 @@ We perform the loading and the filtering of events in `parser.php`. In essence, 
 **Important note**: if you prefer `.txt` output over `.xlsx` use `plain_parser.php` instead (no need to install PhpSpreadsheet in this case)
 
 Results are saved to `results/parsed_output(.xlsx/.txt)` by default, but you can modify the path and the file name in `config.php`.
+
+## Classes & Methods
+
+### Tables (.xlsx)
+
+* `$table = new Table(<table_column_labels>, <table_position>)` creates a new `Table` object and loads it to the variable $table. The first argument to the object constructor is `<table_column_labels>` - an array of strings containing the column labels (e.g. `['First column', 'Second column', ...]`). Second argument is `table_position` - a string which has the format of an Excel spreadsheet cell and specifies where the table should be put (by default it is set to `A1`, i.e. the first column label will be placed there)
+
+* `$table->addTableRow(<value>)` adds a row to the previous `$table`. The argument `<value>` is an array which should have the same order as the column labels. In other words, `<value>` should have the following form `['First cell value', `Second cell value`, ...]`
+
+* `$table->createHeader(<title>, <range>, <data>)` creates a header with specified title (`<title>`) and data provided by an array (`<data>`). Range is a string of the form `'J2:Q'` (default value) and it specifies where the header should be placed and how wide it should be (the height is adjusted automatically, which is why `Q` in this example is not followed by a number). The last argument is `<data>` - an array of the format `['Property' => ['value' => <some_value>, 'unit' => <some_unit>], 'Unitless Property' => <some_value>, ...]`
