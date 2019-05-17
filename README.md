@@ -158,8 +158,8 @@ Results are saved to `results/parsed_output(.xlsx/.txt)` by default, but you can
   ```
   $table->createHeader('Pion', 'A1:H', [
 	'Momentum' => ['value' => 10, 'unit' => 'GeV'], 
-  	'Total number of injections' => 1234, 
-  	'Number of times that a pion decayed into two photons' => 678
+	'Total number of injections' => 1234, 
+	'Number of times that a pion decayed into two photons' => 678
   ]);
   ```
   produces the following result: 
