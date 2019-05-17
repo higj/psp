@@ -24,121 +24,120 @@ The method `Event::getEvents()` (located in `lib/event.php`) constitutes the cor
 
 <details> 
 	<summary>Code Snippet</summary>
-	<p>
-```
-Event Object
-(
-    [injection_momentum] => 8.0 // Value of the initial momentum (in this example 8.0)
-    [spectrometer_data] => Array // Stores the spectrometer data (empty if there's no data)
-        (
-            [track_data] => Array
-                (
-                    [1] => Array // The index corresponds to the track number (here it means Track No. 1)
-                        (
-                            [curvature] => Array
-                                (
-                                    [value] => -0.130972825E-02
-                                    [error] => 0.10885E-09
-                                )
+	
+	```
+	Event Object
+	(
+		[injection_momentum] => 8.0 // Value of the initial momentum (in this example 8.0)
+		[spectrometer_data] => Array // Stores the spectrometer data (empty if there's no data)
+			(
+				[track_data] => Array
+					(
+						[1] => Array // The index corresponds to the track number (here it means Track No. 1)
+							(
+								[curvature] => Array
+									(
+										[value] => -0.130972825E-02
+										[error] => 0.10885E-09
+									)
 
-                            [tandip] => Array
-                                (
-                                    [value] => 0.099900089
-                                    [error] => 0.22033E-03
-                                )
+								[tandip] => Array
+									(
+										[value] => 0.099900089
+										[error] => 0.22033E-03
+									)
 
-                        )
+							)
 
-                    [2] => Array
-                        (
-                            [curvature] => Array
-                                (
-                                    [value] => ...
-                                    [error] => ...
-                                )
+						[2] => Array
+							(
+								[curvature] => Array
+									(
+										[value] => ...
+										[error] => ...
+									)
 
-                            [tandip] => Array
-                                (
-                                    [value] => ...
-                                    [error] => ...
-                                )
+								[tandip] => Array
+									(
+										[value] => ...
+										[error] => ...
+									)
 
-                        )
-			.
-			.
-			.
-                )
+							)
+				.
+				.
+				.
+					)
 
-            [vertices_data] => Array
-                (
-                    [0] => Array
-                        (
-                            [tracks] => Array // Always contains 2 elements - the two tracks corresponding to this vertex
-                                (
-                                    [0] => 1
-                                    [1] => 2
-                                )
+				[vertices_data] => Array
+					(
+						[0] => Array
+							(
+								[tracks] => Array // Always contains 2 elements - the two tracks corresponding to this vertex
+									(
+										[0] => 1
+										[1] => 2
+									)
 
-                            [data] => Array
-                                (
-                                    [coordinates] => Array
-                                        (
-                                            [x] => Array
-                                                (
-                                                    [value] => 81.17825
-                                                    [error] => 24.59993
-                                                )
+								[data] => Array
+									(
+										[coordinates] => Array
+											(
+												[x] => Array
+													(
+														[value] => 81.17825
+														[error] => 24.59993
+													)
 
-                                            [y] => Array
-                                                (
-                                                    [value] => -6.81394
-                                                    [error] => 4.69129
-                                                )
+												[y] => Array
+													(
+														[value] => -6.81394
+														[error] => 4.69129
+													)
 
-                                            [z] => Array
-                                                (
-                                                    [value] => 8.87917
-                                                    [error] => 1.97983
-                                                )
+												[z] => Array
+													(
+														[value] => 8.87917
+														[error] => 1.97983
+													)
 
-                                        )
+											)
 
-                                    [angle] => Array
-                                        (
-                                            [value] => 0.00072
-                                            [error] => 0.09287
-                                        )
+										[angle] => Array
+											(
+												[value] => 0.00072
+												[error] => 0.09287
+											)
 
-                                )
+									)
 
-                        )
-			.
-			.
-			.
-                )
+							)
+				.
+				.
+				.
+					)
 
-        )
+			)
 
-    [cluster_number] => 1 // The number of clusters in the calorimeter
-    [cluster_data] => Array // Array with cluster data
-        (
-            [0] => Array
-                (
-                    [pulse_height] => 23.0
-                    [x] => 133.0
-                    [y] => -23.0
-                    [z] => 16.0
-                )
+		[cluster_number] => 1 // The number of clusters in the calorimeter
+		[cluster_data] => Array // Array with cluster data
+			(
+				[0] => Array
+					(
+						[pulse_height] => 23.0
+						[x] => 133.0
+						[y] => -23.0
+						[z] => 16.0
+					)
 
-        )
+			)
 
-    [has_charged_products] => Boolean // TRUE if charged particles were produced, FALSE otherwise
-    [has_muon_hits] => Boolean // Self-explanatory
-    [number_of_tracks] => 3 // Self-explanatory
-    [number_of_vertices] => 3 // Self-explanatory
-)
-```
-</p>
+		[has_charged_products] => Boolean // TRUE if charged particles were produced, FALSE otherwise
+		[has_muon_hits] => Boolean // Self-explanatory
+		[number_of_tracks] => 3 // Self-explanatory
+		[number_of_vertices] => 3 // Self-explanatory
+	)
+	```
 </details>
 
 We perform the loading and the filtering of events in `parser.php`. In essence, that's the only file you need to work with.
