@@ -4,10 +4,9 @@ require_once __DIR__ . '/../config.php';
 
 class PlainTable {
 	
-	public $column_labels, $rows;
+	public $column_labels, $rows = [];
 	
 	public function __construct($table_column_labels) {
-		
 		$this->column_labels = implode("\t", $table_column_labels);
 	}
 	
