@@ -163,4 +163,5 @@ Results are saved to `results/parsed_output(.xlsx/.txt)` by default, but you can
   ]);
   ```
   produces the following result: 
+  
   ![alt text](https://i.imgur.com/aSK4xaj.png "Header for Part II results")
