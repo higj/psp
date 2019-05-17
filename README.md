@@ -22,6 +22,8 @@ By default, the simulation output (`.txt` file) must be placed in the root direc
 
 The method `Event::getEvents()` (located in `lib/event.php`) constitutes the core of the parser. It scans the events from the output text file and organizes them in an array of `Event` objects. Each such object has the following structure:
 
+<details> 
+<summary>Code Snippet</summary>
 ```
 Event Object
 (
@@ -135,7 +137,7 @@ Event Object
     [number_of_vertices] => 3 // Self-explanatory
 )
 ```
-
+</details>
 
 We perform the loading and the filtering of events in `parser.php`. In essence, that's the only file you need to work with.
 
