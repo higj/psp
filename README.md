@@ -150,7 +150,7 @@ Results are saved to `results/parsed_output(.xlsx/.txt)` by default, but you can
 
 ### Tables (.xlsx)
 
-* `$table = new Table(<table_column_labels>, <table_position>)` creates a new `Table` object and loads it to the variable `$table`. The first argument to the object constructor is `<table_column_labels>` - an array of strings containing the column labels (e.g. `['First column', 'Second column', ...]`). Second argument is `table_position` - a string which has the format of an Excel spreadsheet cell and specifies where the table should be put (by default it is set to `A1`, i.e. the first column label will be placed there)
+* `$table = new Table(<table_column_labels>, <table_position>)` creates a new `Table` object and loads it to the variable `$table`. The first argument to the object constructor is `<table_column_labels>` - an array of strings containing the column labels (e.g. `['First column', 'Second column', ...]`). The second argument is `<table_position>` - a string which has the format of an Excel spreadsheet cell and specifies where the table should be put (by default it is set to `A1`, i.e. the first column label will be placed there)
 
 * `$table->addTableRow(<value>)` adds a row to the previous `$table`. The argument `<value>` is an array which should have the same order as the column labels. In other words, `<value>` should have the following form `['First cell value', 'Second cell value', ...]`
 
