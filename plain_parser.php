@@ -11,7 +11,7 @@ $events = Event::getEvents($simulation_output); // Fetch all the events
 // Here we consider Lambda baryon decay, but the procedure is similar for other particles
 
 // Prepare the txt table
-$table = new PlainTable(['Run' , 'φ', 'Δφ', 'κ1', 'Δκ1', 'κ2', 'Δκ2', 'x', 'Δx', 'y', 'Δy', 'z', 'Δz']); // Prepare the table
+$table = new PlainTable(['Run', 'φ', 'Δφ', 'κ1', 'Δκ1', 'κ2', 'Δκ2', 'x', 'Δx', 'y', 'Δy', 'z', 'Δz']); // Prepare the table
 // Note #1: vertex coordinate columns (x,dx,y,dy,z,dz) are usually needed for calculating the mean lifetime
 // Note #2: Notice the second argument: 'A10'. It refers to the table position (i.e. the table will start from the cell A10)
 
