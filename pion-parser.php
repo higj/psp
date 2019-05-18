@@ -12,7 +12,6 @@ $events = Event::getEvents($simulation_output); // Fetch all the events (creates
 // Prepare the Excel table
 $table = new Table(['Run' , 'PH1', 'x1', 'y1', 'z1', 'PH2', 'x2', 'y2', 'z2'], 'A10');
 
-
 $number_of_injections = 1000; // Change the value if the number of injections was different
 $good_events_counter = 0;
 
