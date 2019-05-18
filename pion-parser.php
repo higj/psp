@@ -23,8 +23,6 @@ foreach($events as $event) {
 	if(!$event->has_charged_products && $event->cluster_number == 2) {
 		$good_events_counter++; // This is a good event
 		
-		$ph1 = 
-		
 		// Add the relevant row in the table (notice that the values are in the same order as the columns from $table definition)
 		$table->addTableRow([
 				$good_events_counter, // Run
